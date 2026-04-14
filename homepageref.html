@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;family=Work+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "error-container": "#ffdad6",
+                      "inverse-on-surface": "#f2f0ed",
+                      "on-secondary-fixed-variant": "#3f4942",
+                      "on-tertiary-fixed-variant": "#61401b",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed": "#ccead6",
+                      "primary-fixed-dim": "#b0cdbb",
+                      "surface-bright": "#fbf9f5",
+                      "tertiary-container": "#5b3a16",
+                      "on-tertiary-fixed": "#2c1600",
+                      "secondary-container": "#d7e3d9",
+                      "surface-dim": "#dbdad6",
+                      "background": "#fbf9f5",
+                      "on-error": "#ffffff",
+                      "on-surface-variant": "#424844",
+                      "on-surface": "#1b1c1a",
+                      "surface-variant": "#e4e2de",
+                      "on-primary-fixed": "#062014",
+                      "inverse-surface": "#30312e",
+                      "on-tertiary": "#ffffff",
+                      "on-tertiary-container": "#d3a577",
+                      "on-primary-fixed-variant": "#324c3e",
+                      "on-secondary": "#ffffff",
+                      "surface-tint": "#496455",
+                      "surface-container-low": "#f5f3ef",
+                      "secondary-fixed": "#dae5dc",
+                      "primary-container": "#2d4739",
+                      "surface-container-high": "#eae8e4",
+                      "on-error-container": "#93000a",
+                      "surface-container-highest": "#e4e2de",
+                      "on-primary": "#ffffff",
+                      "on-secondary-fixed": "#141e18",
+                      "secondary-fixed-dim": "#bec9c0",
+                      "outline": "#727973",
+                      "on-secondary-container": "#5a655e",
+                      "tertiary-fixed": "#ffdcbd",
+                      "outline-variant": "#c2c8c2",
+                      "error": "#ba1a1a",
+                      "tertiary": "#412503",
+                      "inverse-primary": "#b0cdbb",
+                      "on-primary-container": "#98b5a3",
+                      "surface": "#fbf9f5",
+                      "tertiary-fixed-dim": "#eebd8e",
+                      "primary": "#173124",
+                      "on-background": "#1b1c1a",
+                      "secondary": "#56615a",
+                      "surface-container": "#efeeea"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Work Sans"],
+                      "label": ["Work Sans"]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Work Sans', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- TopNavBar (Shared Component) -->
+<nav class="fixed top-0 w-full z-50 bg-[#fbf9f5]/80 dark:bg-[#1b1c1a]/80 backdrop-blur-md shadow-sm shadow-[#1b1c1a]/5">
+<div class="flex justify-between items-center px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="font-['Noto_Serif'] text-2xl font-bold text-[#173124] dark:text-[#f5f3ef]">Harvest &amp; Hearth</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-['Noto_Serif'] text-lg tracking-tight text-[#173124] dark:text-[#f5f3ef] border-b-2 border-[#173124] pb-1" href="#">Shop</a>
+<a class="font-['Noto_Serif'] text-lg tracking-tight text-[#173124]/60 dark:text-[#f5f3ef]/60 hover:text-[#173124]" href="#">Farms</a>
+<a class="font-['Noto_Serif'] text-lg tracking-tight text-[#173124]/60 dark:text-[#f5f3ef]/60 hover:text-[#173124]" href="#">Our Story</a>
+</div>
+<div class="flex items-center gap-6">
+<!-- Search Bar Integration -->
+<div class="relative hidden lg:block">
+<input class="bg-surface-container-highest border-none border-b-2 border-primary text-sm py-2 pl-4 pr-10 focus:ring-0 w-64 font-body" placeholder="Search the larder..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-2 text-primary" data-icon="search">search</span>
+</div>
+<div class="flex gap-4 items-center">
+<button class="hover:bg-[#f5f3ef] dark:hover:bg-[#2d4739] transition-colors duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined text-[#173124] dark:text-[#f5f3ef]" data-icon="shopping_cart">shopping_cart</span>
+</button>
+<button class="hover:bg-[#f5f3ef] dark:hover:bg-[#2d4739] transition-colors duration-300 p-2 rounded-full">
+<span class="material-symbols-outlined text-[#173124] dark:text-[#f5f3ef]" data-icon="person">person</span>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20">
+<!-- Hero Editorial Section -->
+<header class="px-8 max-w-screen-2xl mx-auto mb-16">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-end">
+<div class="md:col-span-7">
+<span class="text-primary font-medium tracking-widest uppercase text-xs mb-4 block">The Weekly Selection</span>
+<h1 class="text-5xl md:text-7xl font-headline font-bold leading-tight text-primary">From Earth <br/><i class="font-normal italic">to Your Table.</i></h1>
+</div>
+<div class="md:col-span-5 pb-2">
+<p class="text-on-surface-variant font-body text-lg leading-relaxed max-w-sm">
+                        Curating the finest seasonal harvests from local independent farms. Real food, grown with integrity and gathered for your home.
+                    </p>
+</div>
+</div>
+</header>
+<!-- Category Filters (Custom Component) -->
+<section class="mb-12 overflow-x-auto no-scrollbar">
+<div class="px-8 max-w-screen-2xl mx-auto flex gap-4">
+<button class="px-6 py-2 bg-primary text-on-primary rounded-full font-body text-sm flex-shrink-0 transition-all duration-200">All Harvests</button>
+<button class="px-6 py-2 bg-surface-container-low border border-outline-variant/20 hover:border-primary/40 rounded-full font-body text-sm flex-shrink-0 transition-all duration-200 text-on-surface">Vegetables</button>
+<button class="px-6 py-2 bg-surface-container-low border border-outline-variant/20 hover:border-primary/40 rounded-full font-body text-sm flex-shrink-0 transition-all duration-200 text-on-surface">Stone Fruits</button>
+<button class="px-6 py-2 bg-surface-container-low border border-outline-variant/20 hover:border-primary/40 rounded-full font-body text-sm flex-shrink-0 transition-all duration-200 text-on-surface">Heirloom Dairy</button>
+<button class="px-6 py-2 bg-surface-container-low border border-outline-variant/20 hover:border-primary/40 rounded-full font-body text-sm flex-shrink-0 transition-all duration-200 text-on-surface">Sourdough &amp; Grains</button>
+<button class="px-6 py-2 bg-surface-container-low border border-outline-variant/20 hover:border-primary/40 rounded-full font-body text-sm flex-shrink-0 transition-all duration-200 text-on-surface">Pantry Staples</button>
+</div>
+</section>
+<!-- Product Grid (Uniform Clean Symmetrical Grid) -->
+<section class="px-8 max-w-screen-2xl mx-auto">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-12">
+<!-- Product Card 1 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Heirloom Carrots" class="w-full h-full object-cover" data-alt="Close-up of a bunch of multi-colored heirloom carrots with green tops on a rustic wooden surface with moody lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoTzce76zOCF3D20a17yAg1_CJwFf0ajh6LFhA-5MCKAjNo9SS0vqfAK4qir0QJnS2wLtMzTjsQ88eI2IVhhrCkmAJsNs9hgRICi2WWGCVKVNPbD19kLFmNzi5yJtELDyOqV3qZbSmGXKGvA8OvUpQwPeemImrt_B-z-FYimMg14Hq7uzhN_iyT49cnDkgN5O7-9lF_Hy_eu8XRIwMwdAXT6ShyW22JYeUix3MnwdL_qAc44h66mTTlXKccjQrVKqRmfksFZsckw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase">Organic</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Rainbow Heirloom Carrots</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">Bunch (~500g)</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$4.50</span>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Sourdough Loaf" class="w-full h-full object-cover" data-alt="Artisanal sourdough bread loaf with a beautiful flour-dusted crust on a dark linen cloth with natural side light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBafTJbLrWlUY8OvhqX6pfK4La-e_IljRMsb3fssJFtPtSJZrPZujDrklZIuxfN6tawBU23SJM8EStZCAU7Xp_LBy0yIXrOWmmKuNvLI5ActrYdljjhMbfjJObpE26sSyn8J_qIqZjA6UiMo4N2GUZP0V7f6P71PgZ4opf0ppl0-0lt-2UeyIfTxIdDtZyohCw67YO37Ry8bmDx-AUglJJSjrv29XX9WbiEKvBhUWk27ScntwR1ISefn3U5VXz0nDD5Hyw3my_X7g"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase">Freshly Baked</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Country Rye Sourdough</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">750g Loaf</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$8.00</span>
+</div>
+</div>
+<!-- Product Card 3 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Creamery Milk" class="w-full h-full object-cover" data-alt="A glass bottle of fresh farm milk with cream on top standing in a sun-drenched rustic kitchen window" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpenWXrfU9nOaYp6uM0Qoq33tmD0hEV4W8vONNHOWEZ4JNEfP35FCeyoR1fVB4BKS6V4vTdh_ZbW6ZSXjpH10P8J_AwgCVxpyH0uaYvjm0ohCSP1U8q07yZ-bTJC4X--EmurjKMw0bzfPBIxOrQAswlvIXzL5sz0Ev0KCtMEIVYklORFLqCA2ywjDb5pOelLbRl-TwRtuQQ872TKTKP3lz7PsTU-sR_5jAOMt7DCoZyE36PHLA4q_1KhvLjrO-SbmGlHcMEiWKJw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase">Local Farm</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Non-Homogenized Milk</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">1L Glass Bottle</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$5.25</span>
+</div>
+</div>
+<!-- Product Card 4 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Kale Bunch" class="w-full h-full object-cover" data-alt="Fresh crisp curly green kale leaves with water droplets in a professional studio setting with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAEuCWS-qeNW6YLMTiwtBuvdsFE4H0x12L1usFrjfFYwOsJru5rll9dc1qQkaVpcPVjm4tzni5DO49MOL-R9ppPBnNAwuz0YByC3JA9i-_oXWDqqgc38YCQtgM0RjFFW2U8EZyugE0S8Tq4ypPfr5KUzosgcE4Y6ktmTrSxPsj4OYuk4p4qzMZAMW-GpBe6RKNMuWW9Dm6CY8bCy2ZPjhn0-nFUt3l_zIWi6wKUskAR9rCK28WoU8KnAlVz4xvortTsfUzH2w248g"/>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Crisp Lacinato Kale</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">Large Bunch</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$3.75</span>
+</div>
+</div>
+<!-- Product Card 5 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Spring Radish" class="w-full h-full object-cover" data-alt="Vibrant pink and white spring radishes with fresh green leaves on a textured ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQAK9FTDCDigRTDIZzmDR-LBs-oRuHcF90YDloUqJJjmnG8FWvaMR8b61uKtsiEh7pl-XBgv6d5JeuIXbo5g1WFVGKjbl3Mrn8Ai54KDzyVK0GpUpkcSdVvztwc1GNeQKx4QtcpbjnioYrCgbV9rk6GsRsOngpJ8trnMj4Pc8x5iUB2bOVWFLFccvoHbp5oiziEYQm9nJk71Prq3lORXm6rs2UbDlCH2Vv6usDfvEwl_0eYpD_oajad6IyLZDIySsJGxIq5LtKBw"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase">Organic</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">French Breakfast Radish</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">250g Bunch</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$3.25</span>
+</div>
+</div>
+<!-- Product Card 6 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Farm Eggs" class="w-full h-full object-cover" data-alt="A carton of speckled brown and blue pasture-raised eggs in a natural cardboard box on a rustic table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBawr6LnV1NN0vTwv3TU5kCGsO3xhEPzxkKH5ixw2k0K54Xc0odwMO11USKeBYeIcToYAWb-ojzuJpF-NgSw0QH5qzIjYnybniPqF5UsK9FSBiuHzoMgW7RYP0rUA9m8Pv_DA9Ilol2e5PY3hpwIM2jv2O8NCvR_z9qVZyj3qZqovvcBthgn_-CCLDP_tn1kcRybSDu7ZwFZ4m5LJBwgBjBxuSBpxzd9vzVC_BS2IXJZxHsrbtsHjnUjzeQPew08kYH9wmdNHTPlw"/>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Pastured Woodland Eggs</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">Dozen (12 pcs)</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$9.50</span>
+</div>
+</div>
+<!-- Product Card 7 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Garlic Bulbs" class="w-full h-full object-cover" data-alt="Heirloom garlic bulbs with papery white and purple skins in a wicker basket with dramatic soft light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL3IlzkWDWkoLPcmS2-BOgLS8nlwZwloD3Oh9y6WRAotRUBPgqIx9LSqOSbQToauW1GCg4rPw5Mv-O1diiaDLMfVQCEU6DrJOU2LZUUVdqq9w8bGkJ886bgBemungL3Hbpjw19a8phmR8L1g42h1qiP9ppOaPEWDHjA72861jWfDJYXOCqdBN3kpR495_g68ORo245sfCZSbX0SIHM4d2qu1pNyKMTyYLy4gFhv1hAI8zlKp9QjJZpY1OspWsKYgpf4htFQNB__w"/>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Hardneck Garlic Bulbs</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">3 Pack</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$6.00</span>
+</div>
+</div>
+<!-- Product Card 8 -->
+<div class="group relative flex flex-col h-full">
+<div class="aspect-[4/5] bg-surface-container-low mb-6 overflow-hidden relative transition-transform duration-500 group-hover:scale-[1.01]">
+<img alt="Fresh Berries" class="w-full h-full object-cover" data-alt="Deep red strawberries with green stems in a small wooden crate on a neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBX82MOSBK67hcayvjM35yuOHTN8cc0gcaedhRbt6UBUlSkcRCsFE3KYX9yYVGAdA1lsWENnRKcqNsirevJVuvFAT1Bn0e0B_UL85lWw5-jdnupvV6ejcmQABgERvDFEsQLv5yz_OK5_LCAV_Jk9WsOVw_u6RD25ySJlDvrMDDPtnDAOyRZ_MnOWgGd8uH0468FXT3KBbTpV4FV2dfrx4oWDdfsGpLHQgJua0Ngjkkxo9l5AegtojSYkNQPl_73MT1ruhBaJneJRQ"/>
+<div class="absolute top-4 left-4">
+<span class="bg-tertiary-container text-on-tertiary-fixed px-3 py-1 rounded-sm text-[10px] font-bold tracking-widest uppercase">Limited</span>
+</div>
+</div>
+<div class="flex flex-col flex-grow">
+<div class="flex justify-between items-start mb-2">
+<div>
+<h3 class="font-headline text-xl text-primary">Summer Strawberries</h3>
+<p class="font-body text-xs text-on-surface-variant uppercase tracking-widest">450g Basket</p>
+</div>
+<button class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center hover:bg-primary-container transition-colors shadow-sm shrink-0 ml-4">
+<span class="material-symbols-outlined text-xl" data-icon="add">add</span>
+</button>
+</div>
+<span class="font-body text-lg font-semibold text-primary mt-auto">$7.25</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Editorial Sign up -->
+<section class="mt-32 px-8 max-w-screen-2xl mx-auto">
+<div class="bg-surface-container-low p-12 md:p-24 flex flex-col items-center text-center">
+<span class="font-headline italic text-2xl text-primary mb-6">Join the Table</span>
+<h2 class="font-headline text-4xl md:text-5xl text-primary mb-8 max-w-2xl leading-tight">Weekly stories from the soil, directly to your inbox.</h2>
+<div class="flex flex-col md:flex-row gap-0 w-full max-w-md">
+<input class="bg-surface border-none border-b border-primary p-4 flex-grow focus:ring-0 font-body placeholder:text-outline-variant" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-4 font-body font-semibold uppercase tracking-widest text-xs hover:bg-primary-container transition-colors">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="bg-[#f5f3ef] dark:bg-[#1b1c1a] w-full border-t border-[#e4e2de] dark:border-[#2d4739]">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-screen-2xl mx-auto">
+<div class="mb-8 md:mb-0">
+<div class="font-['Noto_Serif'] italic text-xl text-[#173124] dark:text-[#f5f3ef] mb-2">Harvest &amp; Hearth</div>
+<p class="font-['Work_Sans'] text-sm tracking-wide text-[#173124]/70 dark:text-[#f5f3ef]/70">© 2024 Harvest &amp; Hearth. Cultivating a better table.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-['Work_Sans'] text-sm tracking-wide text-[#173124]/70 dark:text-[#f5f3ef]/70 hover:text-[#173124] underline decoration-[#173124]/30 transition-all duration-200" href="#">Privacy Policy</a>
+<a class="font-['Work_Sans'] text-sm tracking-wide text-[#173124]/70 dark:text-[#f5f3ef]/70 hover:text-[#173124] underline decoration-[#173124]/30 transition-all duration-200" href="#">Shipping Info</a>
+<a class="font-['Work_Sans'] text-sm tracking-wide text-[#173124]/70 dark:text-[#f5f3ef]/70 hover:text-[#173124] underline decoration-[#173124]/30 transition-all duration-200" href="#">Contact Us</a>
+<a class="font-['Work_Sans'] text-sm tracking-wide text-[#173124]/70 dark:text-[#f5f3ef]/70 hover:text-[#173124] underline decoration-[#173124]/30 transition-all duration-200" href="#">Locations</a>
+</div>
+</div>
+</footer>
+</body></html>
