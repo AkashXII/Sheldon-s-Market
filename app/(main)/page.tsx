@@ -20,7 +20,7 @@ export default async function Home() {
     <main className="px-8 py-10">
 
       {/* Hero */}
-      <div className="py-10 flex items-end justify-between border-b border-stone-200 mb-10">
+      <div className="py-10 flex items-end justify-between border-b border-stone-200 mb-5">
         <h2 className={`text-6xl font-bold text-stone-800 leading-tight ${noto.className}`}>
           From Earth <br />
           <span className="italic font-normal">to Your Table.</span>
@@ -31,11 +31,11 @@ export default async function Home() {
       </div>
 
       {/* Filter tabs */}
-      <div className="flex items-center gap-3 mb-8">
+      <div className="flex items-center gap-3 mb-6">
         {['All Harvests', 'Vegetables', 'Leafy Greens', 'Fruits'].map((tab) => (
           <button
             key={tab}
-            className="px-4 py-1.5 rounded-full text-sm border border-stone-300 text-stone-500 hover:bg-green-800 hover:text-white hover:border-stone-500 transition-colors first:bg-stone-800 first:text-white first:border-stone-800"
+            className={`px-2 py-1 rounded-full text-sm border border-stone-300 text-stone-500 hover:bg-green-900 hover:text-white hover:border-stone-500 transition-colors first:bg-stone-900 first:text-white first:border-stone-800 ${noto.className}`}
           >
             {tab}
           </button>

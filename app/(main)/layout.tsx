@@ -1,24 +1,18 @@
-import type { Metadata } from "next";
-import "../globals.css";
-import Navbar from "../components/Navbar"; // adjust path if needed
+import { getServerSession } from 'next-auth'
+import { redirect } from 'next/navigation'
+import Navbar from '../components/Navbar'
 
-export const metadata: Metadata = {
-  title: "Sheldon's Market",
-  description: "Fresh from the farm, straight to you.",
-};
+export default async function MainLayout({ children }: { children: React.ReactNode }) {
+  const session = await getServerSession()
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+  if (!session) {
+    redirect('/login')
+  }
+
   return (
-    <html lang="en">
-      <body className="min-h-screen bg-stone-50 flex flex-col">
-        
-        <Navbar /> 
-
-        <main className="flex-1">
-          {children}
-        </main>
-
-      </body>
-    </html>
-  );
+    <>
+      <Navbar />
+      {children}
+    </>
+  )
 }

@@ -1,4 +1,5 @@
 'use client'
+import { useSession, signOut } from 'next-auth/react'
 import { Noto_Serif } from 'next/font/google'
 import Link from "next/link";
 import Image from "next/image";
@@ -6,6 +7,8 @@ import Image from "next/image";
 const noto = Noto_Serif({ subsets: ['latin'], weight: ['400', '700'] })
 
 export default function Navbar() {
+  const { data: session } = useSession()
+
   return (
     <nav className="bg-white border-b border-stone-200 px-8 py-4 flex items-center justify-between">
       
@@ -16,20 +19,46 @@ export default function Navbar() {
 
       {/* Links */}
       <div className="flex items-center gap-8">
-        <a href="/" className={`text-sm font-medium text-stone-800 hover:text-green-700 transition-colors ${noto.className}`}>Shop</a>
-        <a href="#" className={`text-sm text-stone-500 hover:text-green-700 transition-colors ${noto.className}`}>Our Story</a>
+        <a href="/" className={`text-sm font-medium text-stone-800 hover:text-green-700 transition-colors ${noto.className}`}>
+          Shop
+        </a>
+        <a href="#" className={`text-sm text-stone-500 hover:text-green-700 transition-colors ${noto.className}`}>
+          Our Story
+        </a>
       </div>
 
       {/* Right side */}
       <div className="flex items-center gap-4">
-<input
-  type="text"
-  placeholder="Search..."
-  className={`text-sm border-b border-stone-300 outline-none py-1 px-2 focus:border-green-700 transition-colors bg-transparent ${noto.className}`}
-/>
-<Link href="/cart" className="text-stone-600 hover:text-green-700 transition-colors">
-  <Image src="/images/trolley.png" alt="cart" width={20} height={20} />
-</Link>
+        <input
+          type="text"
+          placeholder="Search..."
+          className={`text-sm border-b border-stone-300 outline-none py-1 px-2 focus:border-green-700 transition-colors bg-transparent ${noto.className}`}
+        />
+
+        <Link href="/cart" className="text-stone-600 hover:text-green-700 transition-colors">
+          <Image src="/images/trolley.png" alt="cart" width={20} height={20} />
+        </Link>
+
+   
+        {session && (
+          <div className="flex items-center gap-2">
+            {session.user?.image && (
+              <img
+                src={session.user.image}
+                className="w-7 h-7 rounded-full"
+                alt="user"
+              />
+            )}
+            <button
+              onClick={() => signOut({ callbackUrl: '/login' })}
+              className={`text-xs text-stone-400 hover:text-red-500 transition-colors ${noto.className}`}
+        
+            >
+              Sign out
+            </button>
+          </div>
+        )}
+
       </div>
 
     </nav>
