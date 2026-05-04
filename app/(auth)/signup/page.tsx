@@ -69,7 +69,7 @@ export default function LoginPage() {
 </Link>
         <div className="border-t border-stone-100 mt-8 pt-6 text-center">
           <p className="text-stone-400 text-sm"></p>
-          <a href="/auth/login" className="text-green-800 font-medium hover:underline mt-1 inline-block">
+          <a href="/login" className="text-green-800 font-medium hover:underline mt-1 inline-block">
             Already have an account? →
           </a>
         </div>
